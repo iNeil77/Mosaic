@@ -1,0 +1,45 @@
+---
+title: "Chart Summary"
+author: "Indraneil Paul"
+date: "10 Feb 2016"
+output: html_document
+---
+
+##Dataset
+
+The dataset is made up of 6 categorical variables:
+
+
+1. Happiness(Not too happy,Pretty happy,Very happy)
+2. Sex(Male,Female)
+3. Degree(Left high school,High school,Junior College,Bachelor,Graduate)
+4. Marital Status(Widowed,Never married,Divorced,Separated,Married)
+5. Financial Health(Far below average,Below average,Average,Above average,Far above average)
+6. Physical Health(Excellent,Good,Fair,Poor)
+
+##Plotting Approach
+
+We attempt to visualise the data using mosaicplots, which are multivariate plots designed to visualize correlations betwwen various categorical variables. In this example all mising value tuples have been purged.
+
+##Visualisation
+
+```{r global_options, include=FALSE}
+knitr::opts_chunk$set(fig.width=8, fig.height=5,fig.path='Figs/',
+                      echo=FALSE, warning=FALSE, message=FALSE)
+```
+
+```{r Correlation Plot, echo=TRUE}
+library(ggplot2)
+library(productplots)
+prodplot(happy,~marital+degree,na.rm = TRUE)
+```
+
+Here we plot the correlation between marital status and eduacational accomplishment, with educational accomplishment taken as the first variable(plotted horizontally). It is evident that more educated people are more likely to be married and less likely to be saparated.
+
+```{r Correlation Plot2, echo=TRUE}
+prodplot(happy,~marital+degree,na.rm = TRUE,stacked())
+```
+
+Sometimes in the pure mosaic representation it is easy to lose sight of how large each of the categories are w.r.t. each other. Here the stacked representation comes handy.
+
+
