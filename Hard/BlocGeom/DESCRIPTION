@@ -1,0 +1,9 @@
+Package: BlocGeom
+Type: Package
+Title: Categorical Variables Co-Occurence
+Version: 0.0.1
+Date: 2016-03-19
+Author: Indraneil Paul
+Description: More about what it does
+License: GPL
+RoxygenNote: 5.0.1
